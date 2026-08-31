@@ -1,8 +1,14 @@
 import express from "express";
-import {GoogleGenAI} from '@google/genai'
+import { GoogleGenAI } from '@google/genai'
 
 export const getRecommendations = async (req, res) => {
     const { mood, region } = req.body;
+    const ALLOWED_MOODS = ["Happy", "Sad", "Relaxed / Calm", "Romantic", "Angry", "Focused", "Celebratory"];
+    const ALLOWED_REGIONS = ["South Africa", "Botswana", "Namibia", "Zimbabwe", "Zambia", "Mozambique", "Lesotho"];
+
+    if (!ALLOWED_MOODS.includes(mood) || !ALLOWED_REGIONS.includes(region)) {
+        return res.status(400).json({ message: "Invalid mood or region" });
+    }
 
     if (!mood || !region) {
         return res.status(400).json({
