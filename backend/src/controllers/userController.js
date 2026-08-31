@@ -42,12 +42,18 @@ export const getUserProfile = async (req, res) => {
 }
 
 export const updateUserProfile = async (req, res) => {
-    const { full_name, username, email, password } = req.body;
+    const { full_name, username, email, password,current_password} = req.body;
     try {
         const user = await User.findById(req.userId);
 
         if (!user) {
             return res.status(404).json({ message: "User not found" });
+        }
+        if (password) {
+            const isMatch = await bcrypt.compare(current_password, user.password);
+            if (!isMatch) {
+                return res.status(401).json({ message: "Current password is incorrect" });
+            }
         }
 
         if (email && email !== user.email) {
