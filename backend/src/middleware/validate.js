@@ -1,4 +1,3 @@
-// middleware/validate.js
 export const validate = (schema) => (req, res, next) => {
     const parsed = schema.safeParse(req.body);
     if (!parsed.success) {
@@ -7,6 +6,6 @@ export const validate = (schema) => (req, res, next) => {
             errors: parsed.error.issues,
         });
     }
-    req.body = parsed.data; // normalized (trimmed, lowercased) data replaces the raw input
+    req.body = parsed.data; 
     next();
 };
