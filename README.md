@@ -28,31 +28,61 @@ A full-stack web app that recommends music based on your mood and region. Pick h
 - **React Hot Toast** – For notifications
 
 ## Setup
-### 1. Clone the repository
+
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/MphoGithub/MoodVibez-Song-Recommender.git
 cd MoodVibez-Song-Recommender
+```
 
-### 2. Backend setup
+### 2. Backend Setup
 
-`cd backend`
+Navigate to the backend directory:
 
-Copy `.env.example` to `.env` and fill in your credentials
+```bash
+cd backend
+```
 
-`npm install`
+Copy `.env.example` to `.env` and fill in your credentials.
 
-`npm run dev`
+Install the dependencies:
 
-### 3. Frontend setup
+```bash
+npm install
+```
 
-In a new terminal:
+Start the development server:
 
+```bash
+npm run dev
+```
+
+### 3. Frontend Setup
+
+Open a **new terminal** and navigate to the frontend directory:
+
+```bash
 cd frontend
-`npm install`
-`npm run dev`
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## Author
+
+**Mpho**
 
 
-
-**Author**
-Mpho
 
