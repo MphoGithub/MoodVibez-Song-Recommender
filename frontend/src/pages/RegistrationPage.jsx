@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
@@ -20,15 +20,19 @@ const RegistrationPage = () => {
 
     );
     const [loading, setLoading] = useState(false);
-    
 
-    const {login} = useAuth();
+
+    const { login } = useAuth();
     const navigate = useNavigate()
 
-    const handleChange = (e) =>
-    {
-        setFormData({...formData,
-            [e.target.name]: e.target.value });
+    useEffect(() => {
+        document.title = "Register";
+    }, []);
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     }
 
     const handleSubmit = async (e) => {
@@ -42,23 +46,18 @@ const RegistrationPage = () => {
         }
         try {
             const res = await authService.register(formData);
-            if(res.user)
-            {
-                localStorage.setItem('token',res.token);
+            if (res.user) {
+                localStorage.setItem('token', res.token);
                 login(res.user);
                 navigate('/');
             }
         } catch (error) {
             toast.error(error.response?.data?.message || 'Registration failed. Try again.')
-        }finally{
+        } finally {
             setLoading(false);
         }
     }
     if (loading) return <LoadingSpinner />
-     useEffect(()=>
-        {
-            document.title = "Register";
-        },[]);
     return (
         <>
             <Navbar />
@@ -148,7 +147,7 @@ const RegistrationPage = () => {
 
                 </form>
             </div>
-              <Footer />
+            <Footer />
         </>
     )
 }
