@@ -16,6 +16,7 @@ const ProfilePage = () => {
         email:  '',
         username: '',
         password: '',
+        current_password:''
     });
     document.title = `Profile | ${user.username}`;
     useEffect(() => {
@@ -40,6 +41,10 @@ const ProfilePage = () => {
   
     const handleSubmit = async (e) => {
         e.preventDefault();
+         if (form.password && !form.current_password) {
+            toast.error('Enter your current password to set a new one');
+            return;
+        }
         setSubmitting(true);
 
         const payload = {};
