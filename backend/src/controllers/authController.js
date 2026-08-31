@@ -21,9 +21,6 @@ export const registerUser = async (req, res) => {
             if (userExists.email == email) {
                 return res.status(400).json({ message: "Email is already in use" })
             }
-            else {
-                return res.status(400).json({ message: "Email is already in use" })
-            }
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -65,14 +62,14 @@ export const loginUser = async (req,res) =>
 
         if(!user)
         {
-            return res.status(400).json({message:"User not found"});
+            return res.status(400).json({message:"Invalid email or password"});
         }
 
         const isPasswordValid = await bcrypt.compare(password,user.password);
 
         if(!isPasswordValid)
         {
-            return res.status(401).json({message:"Invalid or incorrect password"})
+            return res.status(401).json({message:"Invalid email or password"});
         }
 
         const token = generateToken(user._id,user.email)
