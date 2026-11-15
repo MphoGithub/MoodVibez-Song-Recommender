@@ -27,6 +27,7 @@ const ProfilePage = () => {
                 email: user.email || user.Email || '',
                 username: user.username || '',
                 password: '',
+                current_password: '',
             });
         }
     }, [user]);
@@ -51,7 +52,10 @@ const ProfilePage = () => {
         if (form.full_name) payload.full_name = form.full_name;
         if (form.email) payload.email = form.email;
         if (form.username) payload.username = form.username;
-        if (form.password) payload.password = form.password;
+        if (form.password) {
+            payload.password = form.password;
+            payload.current_password = form.current_password;
+        }
 
         try {
             const data = await authService.updateUserProfile(payload);
