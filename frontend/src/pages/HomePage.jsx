@@ -79,13 +79,13 @@ const HomePage = () => {
         onChange={(e) => setRegion(e.target.value)}
         className="select select-secondary">
           <option value="" disabled>Select a region</option>
-          <option>South Africa 🇿🇦</option>
-          <option>Botswana 🇧🇼</option>
-          <option>Namibia 🇳🇦</option>
-          <option>Zimbabwe 🇿🇼</option>
-          <option>Zambia 🇿🇲</option>
-          <option>Mozambique 🇲🇿</option>
-          <option>Lesotho 🇱🇸</option>
+          <option>South Africa </option>
+          <option>Botswana </option>
+          <option>Namibia </option>
+          <option>Zimbabwe </option>
+          <option>Zambia </option>
+          <option>Mozambique </option>
+          <option>Lesotho </option>
         </select>
         <button type="submit" className="btn btn-outline btn-accent">
           Get Recommendations
