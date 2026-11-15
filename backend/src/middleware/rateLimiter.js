@@ -19,7 +19,7 @@ export const registerLimiter = rateLimit({
 
 export const recommendationLimiter = rateLimit({
     windowMs: 5 * 60 * 60 * 1000,
-    max:3,
+    max:8,
     message:{message:"Too many requests from this IP, please try again later",},
     standardHeaders:true,
     legacyHeaders:false
