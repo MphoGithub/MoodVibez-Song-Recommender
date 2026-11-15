@@ -1,88 +1,124 @@
 # MoodVibez - Song Recommender 🎵
 
-A full-stack web app that recommends music based on your mood and region. Pick how you feel, choose a Southern African country, and MoodVibez uses **Google Gemini AI** to suggest 10 matching songs.
+MoodVibez is a full-stack music recommendation app that suggests songs based on a user’s mood and chosen Southern African region. It combines a Node.js/Express backend with a React + Vite frontend to deliver a sleek, user-friendly music discovery experience.
 
 ## ✨ Features
 
-- **Mood-based recommendations** — Choose from 7 moods and get 10 AI-generated song suggestions
-- **Regional focus** — Recommendations tailored to music popular in Southern Africa
-- **User authentication** — Register, log in, and access protected routes with JWT
-- **User profiles** — View and update your profile
-- **Rate limiting** — Protects auth and recommendation endpoints from abuse
+- Mood-based song suggestions using Google Gemini AI
+- Country/region-aware recommendations for Southern Africa
+- User registration and login with JWT authentication
+- Protected user profile management
+- Rate limiting for API security
+- Responsive modern frontend with Tailwind CSS and DaisyUI
 
 ## 🛠️ Tech Stack
 
-- **MongoDB**
-- **Express** 
-- **React 19**
-- **Node.JS**
-- **Vite** – Fast development and build tool
-- **Tailwind CSS** 
-- **DaisyUI**
-- **JWT** – for secure authentication
-- **bcryptjs** – for password hashing
-- **CORS & dotenv** – for security and environment variables
-- **Google Generative AI** (@google/genai) – for smart music recommendations
-- **Axios** – For making API requests
-- **React Router** – For navigation
-- **React Hot Toast** – For notifications
+- MongoDB
+- Express.js
+- Node.js
+- React 19
+- Vite
+- Tailwind CSS
+- DaisyUI
+- JWT
+- bcryptjs
+- dotenv
+- CORS
+- Axios
+- React Router
+- React Hot Toast
+- Google Generative AI (@google/genai)
 
-## Setup
+## 📁 Project Structure
 
-### 1. Clone the Repository
+```bash
+MoodVibez-Song-Recommender/
+├── backend/
+│   ├── src/
+│   ├── .env.example
+│   ├── package.json
+│   └── package-lock.json
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── README.md
+├── README.md
+├── .gitignore
+├── LICENSE
+└── package.json
+```
+
+## 🚀 Setup
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/MphoGithub/MoodVibez-Song-Recommender.git
 cd MoodVibez-Song-Recommender
 ```
 
-### 2. Backend Setup
-
-Navigate to the backend directory:
+### 2. Backend setup
 
 ```bash
 cd backend
-```
-
-Copy `.env.example` to `.env` and fill in your credentials.
-
-Install the dependencies:
-
-```bash
+cp .env.example .env
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-### 3. Frontend Setup
+The backend runs on:
 
-Open a **new terminal** and navigate to the frontend directory:
+```bash
+http://localhost:8000
+```
+
+### 3. Frontend setup
+
+Open a new terminal and run:
 
 ```bash
 cd frontend
+npm install
+npm run dev
 ```
 
-Install the dependencies:
+The frontend runs on:
 
 ```bash
-npm install
+http://localhost:5173
 ```
 
-Start the development server:
+## 🔐 Environment Variables
+
+Create a `.env` file in the backend using the example template and fill in the required values:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=8000
+GEMINI_API_KEY=your_google_gemini_api_key
+```
+
+## 🧪 Scripts
+
+### Backend
 
 ```bash
 npm run dev
 ```
+Starts the Express API with nodemon.
 
----
+### Frontend
 
-## Author
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
+
+## 👤 Author
 
 **Mpho**
-
-
 
