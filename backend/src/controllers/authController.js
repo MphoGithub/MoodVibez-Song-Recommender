@@ -34,7 +34,7 @@ export const registerUser = async (req, res) => {
             token,
             user: {
                 id: newUser._id,
-                name: newUser.full_name,
+                full_name: newUser.full_name,
                 username: newUser.username,
                 email: newUser.email
             }
